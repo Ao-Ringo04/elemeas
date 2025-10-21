@@ -11,24 +11,14 @@ from collections import deque
 import datetime
 import subprocess
 import sys
+import ctypes
 filename = "test(python2)"
 
-interface_name = "USB 10/100/1000 LAN"  # 使用しているものに依存
-# 手動設定に変更してIPアドレスを設定
+interface_name = "イーサネット 2"  # 使用しているものに依存
+# スリープ防止
 subprocess.run([
-    'netsh', 'interface', 'ipv4', 'set', 'address',
-    'name=' + interface_name,
-    'static',
-    '192.168.1.104',  # IPアドレス
-    '255.255.0.0',    # サブネットマスク
-    '169.254.157.125' # ゲートウェイ
-], check=True)
-
-# スリープ防止を開始
-subprocess.run([
-    'powercfg', '/change', 'monitor-timeout-ac', '0'
-], check=True)
-
+        'powercfg', '/change', 'monitor-timeout-ac', '0'
+    ], check=True)
 current_time = datetime.datetime.now()
 formatted_time = current_time.strftime("%Y.%m.%d-%H%M")
 formatted_time_and_name = formatted_time + filename
@@ -949,12 +939,6 @@ if __name__ == "__main__":
         gate_smu.close()
         print("All connections closed.")
         subprocess.run([
-            'powercfg', '/change', 'monitor-timeout-ac', '10'  # 10分など、元の設定値
+        'powercfg', '/change', 'monitor-timeout-ac', '10'
         ], check=True)
-        print("スリープ防止機能解除")
-        subprocess.run([
-            'netsh', 'interface', 'ipv4', 'set', 'address',
-            'name=' + interface_name,
-            'dhcp'
-        ], check=True)
-        print("DHCP設定に復帰")
+        print("スリープ防止モード解除")
