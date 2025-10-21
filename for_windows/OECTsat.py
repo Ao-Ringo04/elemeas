@@ -33,7 +33,7 @@ subprocess.run([
     ], check=True)
 current_time = datetime.datetime.now()
 formatted_time = current_time.strftime("%Y.%m.%d-%H%M")
-formatted_time_and_name = "./data/"+formatted_time + filename
+formatted_time_and_name = "../data/"+formatted_time + filename
 
 # ============================================
 # 測定モード定義
