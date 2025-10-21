@@ -11,7 +11,8 @@ from collections import deque
 import datetime
 import subprocess
 import sys
-filename = "test(python2)"
+filename = input("Enter file name:")
+
 
 service_name = "USB 10/100/1000 LAN"  # 使用しているものに依存
 # 手動設定に変更してIPアドレスを設定

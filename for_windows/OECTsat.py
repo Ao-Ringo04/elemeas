@@ -12,7 +12,7 @@ import datetime
 import subprocess
 import sys
 import ctypes
-filename = "test(python2)"
+filename = input("Enter file name:")
 
 interface_name = "イーサネット 2"  # 使用しているものに依存
 # 手動でPアドレスを設定済み(NIMS winsows)

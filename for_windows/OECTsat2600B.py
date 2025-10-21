@@ -11,7 +11,7 @@ from collections import deque
 import datetime
 import subprocess
 import sys
-filename = input("sample name")
+filename = input("Enter file name:")
 
 interface_name = "USB 10/100/1000 LAN"  
 # 手動でPアドレスを設定済み(NIMS winsows)
