@@ -15,6 +15,18 @@ import ctypes
 filename = "test(python2)"
 
 interface_name = "イーサネット 2"  # 使用しているものに依存
+# 手動でPアドレスを設定済み(NIMS winsows)
+"""
+機能しないのでコメントアウト
+subprocess.run([
+    'netsh', 'interface', 'ipv4', 'set', 'address',
+    'name=' + interface_name,
+    'static',
+    '192.168.1.104',  # IPアドレス
+    '255.255.0.0',    # サブネットマスク
+    '169.254.157.125' # ゲートウェイ
+], check=True)
+"""
 # スリープ防止
 subprocess.run([
         'powercfg', '/change', 'monitor-timeout-ac', '0'
@@ -942,3 +954,11 @@ if __name__ == "__main__":
         'powercfg', '/change', 'monitor-timeout-ac', '10'
         ], check=True)
         print("スリープ防止モード解除")
+        """
+        subprocess.run([
+            'netsh', 'interface', 'ipv4', 'set', 'address',
+            'name=' + interface_name,
+            'dhcp'
+        ], check=True)
+        print("DHCP設定に戻しました")
+        """

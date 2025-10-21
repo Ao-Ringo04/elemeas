@@ -13,8 +13,10 @@ import subprocess
 import sys
 filename = "test(python2,DMM1)"
 
-interface_name = "USB 10/100/1000 LAN"  # 使用しているものに依存
-# 手動設定に変更してIPアドレスを設定
+interface_name = "USB 10/100/1000 LAN"  
+# 手動でPアドレスを設定済み(NIMS winsows)
+"""
+機能しないのでコメントアウト
 subprocess.run([
     'netsh', 'interface', 'ipv4', 'set', 'address',
     'name=' + interface_name,
@@ -23,6 +25,7 @@ subprocess.run([
     '255.255.0.0',    # サブネットマスク
     '169.254.157.125' # ゲートウェイ
 ], check=True)
+"""
 
 # スリープ防止を開始
 subprocess.run([
@@ -1164,9 +1167,11 @@ if __name__ == "__main__":
             'powercfg', '/change', 'monitor-timeout-ac', '10'  # 10分など、元の設定値
         ], check=True)
         print("スリープ防止機能解除")
+        """
         subprocess.run([
             'netsh', 'interface', 'ipv4', 'set', 'address',
             'name=' + interface_name,
             'dhcp'
         ], check=True)
         print("DHCP設定に復帰")
+        """
