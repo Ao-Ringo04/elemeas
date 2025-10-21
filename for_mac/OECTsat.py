@@ -481,7 +481,7 @@ class MeasurementController:
                 lag_time = actual_interval - data_interval
                 lag_ratio = lag_time / data_interval*100
                 if measurement_count > 1:
-                    print(f"  [遅延時間: {lag_time:.3f}s,遅延率: {lag_ratio:.3f}%]")
+                    print(f"  [遅延時間: {lag_time*1000:.3f}ms,遅延率: {lag_ratio:.3f}%]")
                 last_measure_time = current_time
                 
                 try:
