@@ -31,7 +31,7 @@ subprocess.Popen(['powercfg', '/change', 'monitor-timeout-ac', '0'])
 
 current_time = datetime.datetime.now()
 formatted_time = current_time.strftime("%Y.%m.%d-%H%M")
-formatted_time_and_name = formatted_time + filename
+formatted_time_and_name = "./data/"+formatted_time + filename
 
 # ============================================
 # 測定モード定義
@@ -484,7 +484,7 @@ class MeasurementController:
                 lag_time = actual_interval - data_interval
                 lag_ratio = lag_time / data_interval*100
                 if measurement_count > 1:
-                    print(f"  [遅延時間: {lag_time:.3}s,遅延率: {lag_ratio:.3f}%]")
+                    print(f"  [遅延時間: {lag_time:.3f}s,遅延率: {lag_ratio:.3f}%]")
                 last_measure_time = current_time
                 
                 try:
