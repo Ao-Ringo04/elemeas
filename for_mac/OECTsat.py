@@ -866,7 +866,7 @@ if __name__ == "__main__":
     dmm = DMM6500(rm=rm, 
                   ip="192.168.1.103", 
                   v_range=1.0, 
-                  nplc=10, 
+                  nplc=1.0, 
                   autozero="ON", 
                   timeout=5000, 
                   retries=3
@@ -895,7 +895,7 @@ if __name__ == "__main__":
         vsd_sat=-0.01,                  # ソースドレイン電圧[V]
         cycle_num=3,                    # サイクル数
         vg_sat_initial=0,               # ゲート初期電圧[V]
-        vref_sat_initial=-0.28,         # Vref初期値[V]
+        vref_sat_initial=-0.27,         # Vref初期値[V]
         vref_sat_max_change=-0.8,       # Vref最大変化値[V]
         vg_sat_step=0.05,               # ゲート電圧ステップ[V]
         sat_wait_time=30,               # Vref到達待機時間[s]

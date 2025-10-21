@@ -1054,7 +1054,7 @@ if __name__ == "__main__":
     dmm = DMM6500(rm=rm, 
                   ip="192.168.1.160", #DMM1
                   v_range=1.0, 
-                  nplc=10, 
+                  nplc=1.0, 
                   autozero="ON", 
                   timeout=5000, 
                   retries=3
