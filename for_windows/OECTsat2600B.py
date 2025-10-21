@@ -11,7 +11,7 @@ from collections import deque
 import datetime
 import subprocess
 import sys
-filename = input("Enter file name:")
+filename = input("Enter sample name")
 
 interface_name = "USB 10/100/1000 LAN"  
 # 手動でPアドレスを設定済み(NIMS winsows)
@@ -676,7 +676,7 @@ class MeasurementController:
                 lag_time = actual_interval - data_interval
                 lag_ratio = lag_time / data_interval*100
                 if measurement_count > 1:
-                    print(f"  [遅延時間: {lag_time:.3f}s,遅延率: {lag_ratio:.3f}%]")
+                    print(f"  [遅延時間: {lag_time*1000:.3f}ms,遅延率: {lag_ratio:.3f}%]")
                 last_measure_time = current_time
                 
                 try:
