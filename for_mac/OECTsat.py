@@ -172,7 +172,7 @@ class DMM6500(InstrumentBase):
     """KEITHLEY DMM6500 Digital Multimeter制御クラス"""
     
     def __init__(self, rm: pyvisa.ResourceManager, ip: str, v_range: float = 1.0,
-                 nplc: float = 10.0, autozero: str = "ON", timeout: int = 5000, retries: int = 3):
+                 nplc: float = 1.0, autozero: str = "ON", timeout: int = 5000, retries: int = 3):
         super().__init__(rm, ip, timeout, retries)
         self.v_range = v_range
         self.nplc = nplc
@@ -214,7 +214,7 @@ class Keithley2450Drain(InstrumentBase):
     
     def __init__(self, rm: pyvisa.ResourceManager, ip: str, source_voltage: float,
                  compliance_current: float = 0.001, meas_range: float = None,
-                 nplc: float = 10.0, autozero: str = "ON", timeout: int = 5000, retries: int = 3):
+                 nplc: float = 1.0, autozero: str = "ON", timeout: int = 5000, retries: int = 3):
         super().__init__(rm, ip, timeout, retries)
         self.source_voltage = source_voltage
         self.compliance_current = compliance_current
